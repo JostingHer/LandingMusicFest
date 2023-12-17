@@ -1,9 +1,9 @@
 (function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))c(t);new MutationObserver(t=>{for(const r of t)if(r.type==="childList")for(const s of r.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&c(s)}).observe(document,{childList:!0,subtree:!0});function e(t){const r={};return t.integrity&&(r.integrity=t.integrity),t.referrerPolicy&&(r.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?r.credentials="include":t.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function c(t){if(t.ep)return;t.ep=!0;const r=e(t);fetch(t.href,r)}})();document.addEventListener("DOMContentLoaded",function(){i()});function i(){a(),d(),l()}function a(){const n=document.querySelector(".header"),o=document.querySelector(".sobre-festival"),e=document.querySelector("body");window.addEventListener("scroll",function(){o.getBoundingClientRect().bottom<0?(n.classList.add("fijo"),e.classList.add("body-scroll")):(n.classList.remove("fijo"),e.classList.remove("body-scroll"))})}function l(){document.querySelectorAll(".navegacion-principal a").forEach(o=>{o.addEventListener("click",function(e){e.preventDefault();const c=e.target.attributes.href.value;document.querySelector(c).scrollIntoView({behavior:"smooth"})})})}function d(){const n=document.querySelector(".galeria-imagenes");for(let o=1;o<=12;o++){const e=document.createElement("picture");e.innerHTML=`
-          <source srcset="/assets/img/thumb/${o}.avif" type="image/avif">
-          <source srcset="/assets/img/thumb/${o}.webp" type="image/webp">
-          <img loading="lazy" width="200" height="300" src="/assets/img/thumb/${o}.jpg" alt="imagen galeria">
+          <source srcset="assets/img/thumb/${o}.avif" type="image/avif">
+          <source srcset="assets/img/thumb/${o}.webp" type="image/webp">
+          <img loading="lazy" width="200" height="300" src="assets/img/thumb/${o}.jpg" alt="imagen galeria">
       `,e.onclick=function(){u(o)},n.appendChild(e)}}function u(n){const o=document.createElement("picture");o.innerHTML=`
-      <source srcset="/assets/img/grande/${n}.avif" type="image/avif">
-      <source srcset="/assets/img/grande/${n}.webp" type="image/webp">
-      <img loading="lazy" width="200" height="300" src="/assets/img/grande/${n}.jpg" alt="imagen galeria">
+      <source srcset="assets/img/grande/${n}.avif" type="image/avif">
+      <source srcset="assets/img/grande/${n}.webp" type="image/webp">
+      <img loading="lazy" width="200" height="300" src="assets/img/grande/${n}.jpg" alt="imagen galeria">
   `;const e=document.createElement("DIV");e.appendChild(o),e.classList.add("overlay"),e.onclick=function(){document.querySelector("body").classList.remove("fijar-body"),e.remove()};const c=document.createElement("P");c.textContent="X",c.classList.add("btn-cerrar"),c.onclick=function(){document.querySelector("body").classList.remove("fijar-body"),e.remove()},e.appendChild(c);const t=document.querySelector("body");t.appendChild(e),t.classList.add("fijar-body")}

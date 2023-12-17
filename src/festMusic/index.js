@@ -47,9 +47,9 @@ function crearGaleria() {
   for(let i = 1; i <= 12; i++ ) {
       const imagen = document.createElement('picture');
       imagen.innerHTML = `
-          <source srcset="/assets/img/thumb/${i}.avif" type="image/avif">
-          <source srcset="/assets/img/thumb/${i}.webp" type="image/webp">
-          <img loading="lazy" width="200" height="300" src="/assets/img/thumb/${i}.jpg" alt="imagen galeria">
+          <source srcset="assets/img/thumb/${i}.avif" type="image/avif">
+          <source srcset="assets/img/thumb/${i}.webp" type="image/webp">
+          <img loading="lazy" width="200" height="300" src="assets/img/thumb/${i}.jpg" alt="imagen galeria">
       `;
       imagen.onclick = function() {
           mostrarImagen(i);
@@ -63,9 +63,9 @@ function crearGaleria() {
 function mostrarImagen(id) {
   const imagen = document.createElement('picture');
   imagen.innerHTML = `
-      <source srcset="/assets/img/grande/${id}.avif" type="image/avif">
-      <source srcset="/assets/img/grande/${id}.webp" type="image/webp">
-      <img loading="lazy" width="200" height="300" src="/assets/img/grande/${id}.jpg" alt="imagen galeria">
+      <source srcset="assets/img/grande/${id}.avif" type="image/avif">
+      <source srcset="assets/img/grande/${id}.webp" type="image/webp">
+      <img loading="lazy" width="200" height="300" src="assets/img/grande/${id}.jpg" alt="imagen galeria">
   `;
 
   // Crea el Overlay con la imagen
